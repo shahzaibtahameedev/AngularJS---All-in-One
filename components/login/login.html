@@ -1,0 +1,39 @@
+<div class="login">
+    <form name="myform">
+        <label for="fname">Username:</label><br>
+        <input 
+        type="text" 
+        id="fname" 
+        name="fname" 
+        ng-model="usernameData"
+        required>
+        <br>
+        <span 
+        ng-show="myform.fname.$invalid"
+        ng-hide="myform.fname.$dirty"
+        class="validation"
+        >
+            Please Enter a Username
+        </span>
+        <br>
+        <br>
+        <label 
+        for="lname">
+        Password:</label>
+        <br>
+        <input 
+        type="text" 
+        id="lname" 
+        name="lname" 
+        ng-model="passwordData"
+        required>
+        <br>
+        <span 
+        ng-show="myform.lname.$invalid"
+        ng-hide="myform.lname.$dirty"
+        class="validation"
+        >
+            Please Enter a Password
+        </span>
+    </form>
+</div>
