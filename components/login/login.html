@@ -1,5 +1,6 @@
 <div class="login">
-    <form name="myform">
+    <form 
+    name="myform">
         <label for="fname">Username:</label><br>
         <input 
         type="text" 
@@ -9,11 +10,10 @@
         required>
         <br>
         <span 
-        ng-show="myform.fname.$invalid"
-        ng-hide="myform.fname.$dirty"
+        ng-hide="usernameData===username"
         class="validation"
         >
-            Please Enter a Username
+            Please Enter Valid Username
         </span>
         <br>
         <br>
@@ -29,11 +29,21 @@
         required>
         <br>
         <span 
-        ng-show="myform.lname.$invalid"
-        ng-hide="myform.lname.$dirty"
+        ng-hide="passwordData===password"
         class="validation"
         >
-            Please Enter a Password
+            Please Enter Valid Password
         </span>
+        <br>
+        <br>
+        <input 
+        type="submit" 
+        value="Submit"
+        ng-disabled="usernameData!==username || passwordData!==password">
+        <br>
+        <button 
+        type="button"
+        ng-click="$ctrl.goToDashboard()">Submit</button>
+        <span>Number is : {{number}}</span>
     </form>
 </div>

@@ -6,15 +6,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="/mainApp.js"></script>
     <script src="/components/login/login.js"></script>
+    <script src="/components/app/app.js"></script>
+    <script src="/components/dashboard/dashboard.js"></script>
+    <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
 </head>
 <body>
     <div
     ng-app="myApp"
-    ng-controller="myCtrl"
     >
-        <h1 class="heading">Login Form</h1>
-        <login-comp></login-comp>
-
+        <app></app>
     </div>
 </body>
 </html>
