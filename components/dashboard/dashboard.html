@@ -1,1 +1,143 @@
-<h1>We are in Dashboard Component</h1>
+<div ng-model="newData">Data : {{newData}}</div>
+<!-- Button trigger modal -->
+<div class="container pt-4 d-flex justify-content-center">
+    <button 
+        type="button" 
+        class="btn btn-primary" 
+        data-bs-toggle="modal" 
+        data-bs-target="#staticBackdrop">
+            Launch static backdrop modal
+    </button>
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        
+        <div class="modal-body">
+            <div class="container-fluid">
+                <div class="row" style="background-color: #f2f7fa;">
+                    <div class="col-lg-6 m-auto">
+                        <div class="row">
+                            <div class="col-3 py-2">
+                                <img src="/components/dashboard/personImg.PNG" 
+                                alt=""
+                                width="100"
+                                height="100">
+                            </div>
+                            <div class="col-9 ps-3">
+                                <h1 class="pt-4 fw-bold fs-4">Abdul Muiz</h1>
+                                <p class="fs-5">Software Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6 d-flex align-items-center justify-content-end">
+                        <div><button type="button" class="btn btn-secondary btn-sm me-2">Button-1</button></div>
+                        <div><button type="button" class="btn btn-sm btn-warning">Button-2</button></div>
+                    </div>
+
+                    
+                    
+                </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-5">
+                        <div class="row">
+                            <div 
+                            class="col-md-12 bg-primary fs-4 fw-bold p-2 px-4 dropdown"
+                            data-bs-toggle="dropdown"
+                            style="color: #f2f7fa; font-family: Arial, Helvetica, sans-serif;">
+                                Basic Information
+                                <div class="dropdown-menu">
+                                    <form action="">
+                                        <div class="input-group">
+                                            <div class="input-group-text">@</div>
+                                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Username">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                                
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="col-md-7">
+                        <h1 class="fs-3 px-2 py-3">Initial Screening - HR</h1>
+                        <table class="table table-striped">
+                                <tr>
+                                    <td><b>Status</b></td>
+                                    <td>Initial Screening</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Date Reviewed:</b></td>
+                                    <td>05-May-2023</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Comments:</b></td>
+                                    <td>HR screening is done. Forwarding to technical screening</td>
+                                </tr>
+                                <tr>
+                                    <td>Reviewed By:</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-2 px-1 py-2">
+                                                <img src="/components/dashboard/personImg.PNG" 
+                                                    alt=""
+                                                    class="img-fluid rounded">
+                                            </div>
+                                            <div class="col-2 d-flex align-items-center">
+                                                <b>HR 01</b>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                        </table>
+                        <br>
+                        <h1 class="fs-3 px-2 py-3">Technical Screening - Team Lead/Manager</h1>
+                        <table class="table table-striped">
+                            <tr>
+                                <td><b>Status</b></td>
+                                <td>Initial Screening</td>
+                            </tr>
+                            <tr>
+                                <td><b>Date Reviewed:</b></td>
+                                <td>05-May-2023</td>
+                            </tr>
+                            <tr>
+                                <td><b>Comments:</b></td>
+                                <td>HR screening is done. Forwarding to technical screening</td>
+                            </tr>
+                            <tr>
+                                <td>Reviewed By:</td>
+                                <td>
+                                    <div class="row">
+                                        <div class="col-2 px-1 py-2">
+                                            <img src="/components/dashboard/personImg.PNG" 
+                                                alt=""
+                                                class="img-fluid rounded">
+                                        </div>
+                                        <div class="col-2 d-flex align-items-center">
+                                            <b>HR 01</b>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      
+    
+    </div>
+    </div>
+  </div>

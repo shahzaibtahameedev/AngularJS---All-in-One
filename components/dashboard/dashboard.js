@@ -1,6 +1,8 @@
 app.component("dashboard",{
-    template: "<h1>In the Dashboard</h1>",
-    controller: function($scope){
-        
+    templateUrl: "/components/dashboard/dashboard.html",
+    controller: function($scope, $rootScope){
+        $scope.$on('dataPassed', function(event, data) {
+            $scope.newData = data;
+          });
     }
 })

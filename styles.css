@@ -1,7 +1,8 @@
 .login {
     text-align: center;
     color: black;
-    border-style: dotted;
+    border-style: groove;
+    border-color: burlywood;
 }
 
 .heading {

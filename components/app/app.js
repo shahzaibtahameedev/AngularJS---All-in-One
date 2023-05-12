@@ -7,6 +7,9 @@ app.component("app", {
         useAsDefault: true},
         {path: '/dashboard', 
         name: 'Dashboard', 
-        component: 'dashboard'}
+        component: 'dashboard'},
+        {path: '/details',
+        name: 'Detail',
+        component: 'detailComp'}
       ]
 })
