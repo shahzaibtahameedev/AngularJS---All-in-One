@@ -1,6 +1,6 @@
 app.component("detailComp",{
     templateUrl : "components/detail/detail.html",
-    controller : function($scope, $rootScope){
-        $rootScope.$broadcast('dataPassed', $scope.status);
+    controller : function($scope, $rootScope, dataService){
+        dataService.setData($scope.status);
     }
 });

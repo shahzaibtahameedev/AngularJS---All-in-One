@@ -1,4 +1,4 @@
-app.service('dataService', function() {
+app.factory('dataService', function() {
     var data = {};
 
     return {

@@ -1,14 +1,19 @@
 app.component("loginComp",{
     templateUrl  : "components/login/login.html",
-    controller: function($scope){
+    controller: function($scope, $http){
         //this.myname = "Shahzaib";
         $scope.username = "Shahzaib";
         $scope.password = "Tahamee";
-        var vm = this;
-        vm.goToDashboard = function(){
-            $scope.number = 3;
-            this.$router.navigate(['/dashboard']);
-        }
+        
+        $http({
+            method: 'GET',
+            url: 'https://dummyjson.com/products'
+        }).then(function successCallback(response) {
+            $scope.dataFromApiNew = response.data.total;
+            console.log(response.total);
+        }, function errorCallback(response) {
+            $scope.dataFromApiNew = 'errorCallBack was invoked'
+        });
     },
     bindings: {
         '$router': '<'

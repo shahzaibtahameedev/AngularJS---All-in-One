@@ -1,4 +1,38 @@
-<div>Data : {{dataFromApi}}</div>
+<div  ng-controller="myCtrl">
+    <div class="container pt-3 d-flex justify-content-center d-inline-block">
+        <div class="m-auto">Number of rows to display : <input type="number" step="1" min="0" max="15" ng-model="rowLimit"></div>
+        <div class="m-auto">Order By : <select ng-model="sortColumn">
+                                        <option value="id">ID</option>
+                                        <option value="title">Title</option>
+                                        <option value="-price">Price</option>
+                                    </select>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!-- Table -->
+    <div class="table-responsive-md w-75 m-auto">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat = "product in dataFromApi | limitTo : rowLimit | orderBy : sortColumn">
+                    <th scope="row">{{product.id}}</th>
+                    <td>{{product.title}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 <!-- Button trigger modal -->
 <div class="container pt-4 d-flex justify-content-center">
     <button 
