@@ -1,11 +1,33 @@
-<div  ng-controller="myCtrl">
+<div ng-controller="myCtrl">
     <div class="container pt-3 d-flex justify-content-center d-inline-block">
+        
+        <div class="m-auto">
+            
+                <select ng-model="dataToGet">
+                    <option value="data1">1-10</option>
+                    <option value="data2">11-20</option>
+                    <option value="data3">21-30</option>
+                </select>
+            
+            
+            
+                <button 
+                type="button"
+                class="btn btn-primary"
+                ng-click="getValue(dataToGet)">Filter</button>
+            
+            
+        </div>
+
+        <div class="m-auto"><input type="text" placeholder="Search Title" ng-model="searchText.title"></div>
+
+
         <div class="m-auto">Number of rows to display : <input type="number" step="1" min="0" max="15" ng-model="rowLimit"></div>
         <div class="m-auto">Order By : <select ng-model="sortColumn">
-                                        <option value="id">ID</option>
-                                        <option value="title">Title</option>
-                                        <option value="-price">Price</option>
-                                    </select>
+                                            <option value="id">ID</option>
+                                            <option value="title">Title</option>
+                                            <option value="-price">Price</option>
+                                        </select>
         </div>
     </div>
     <br>
@@ -23,16 +45,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat = "product in dataFromApi | limitTo : rowLimit | orderBy : sortColumn">
-                    <th scope="row">{{product.id}}</th>
+                <tr ng-repeat = "product in dataFromApi.slice(start,end) | limitTo : rowLimit | orderBy : sortColumn | filter:searchText">
+                    <th scope="row">{{product.id | zeroBeforeNum}}</th>
                     <td>{{product.title}}</td>
                     <td>{{product.description}}</td>
-                    <td>{{product.price}}</td>
+                    <td>{{product.price | currency}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
+
 <!-- Button trigger modal -->
 <div class="container pt-4 d-flex justify-content-center">
     <button 
@@ -44,7 +68,7 @@
     </button>
 </div>
   <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" ng-controller="myCtrl" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
         
@@ -104,7 +128,7 @@
                         <table class="table table-striped">
                                 <tr>
                                     <td><b>Status</b></td>
-                                    <td>Initial Screening</td>
+                                    <td>{{ctrl.status}}</td>
                                 </tr>
                                 <tr>
                                     <td><b>Date Reviewed:</b></td>

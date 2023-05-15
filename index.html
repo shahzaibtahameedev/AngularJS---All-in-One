@@ -7,19 +7,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src="/mainApp.js"></script>
     <script src="/components/login/login.js"></script>
-    <script src="/components/app/app.js"></script>
+    <!-- <script src="/components/app/app.js"></script> -->
     <script src="/components/dashboard/dashboard.js"></script>
-    <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
+    <!-- <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
     <script src="/components/detail/detail.js"></script>
     <script src="/service/data-service.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/angular-ui-router.js" integrity="sha512-ftmRxP7cYZRj3uBVtTLTXU8QwkcOu2fuVaWqyKpMS40CVRns5TtQGesezvqGI+Eb6B+SuUQLjoHYdoJvDcD7/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/angular-ui-router.min.js" integrity="sha512-BWLZUPMCCZGKazkRadkF9YXKQcVv1uAsyfvVx7T6pojT72iTrD6wegUBpaF8H3dCpLOeMDeXu+W58qgqZ0iwvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/resolveService.js" integrity="sha512-217+QnytYFoafICTfrlCloNplfWvH44P33iQHXEd5fe7AlCzqd/YUdXM+ADbuAGapBoyk/bFdFhiQnPAk0Sg/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/resolveService.min.js" integrity="sha512-hjE8NWXHdqDPUXjt9Kh5tLPc9NEMsqcKFjS9yVne7VNPtczg5kYS96jf3pB4I3MNQNyghDFQB5KSAD4d+wXqnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+    <script src="/filter/number.js"></script>
+
 </head>
 <body>
     <div
     ng-app="myApp"
     >
-        <app></app>
+     <nav class="navbar" style="border-style: dotted;">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li><a href="#!login">Login</a></li>
+                <li><a href="#!dashboard">Dashboard</a></li>
+                <li><a href="#!details">Details</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+
+        <div ng-view></div>
+
     </div>
 </body>
 </html>

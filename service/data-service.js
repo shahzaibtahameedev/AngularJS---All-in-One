@@ -1,7 +1,10 @@
-app.factory('dataService', function() {
-    var data = {};
-
-    return {
+var data = {};
+var count = 5; 
+app.factory('dataService', function() {    
+  return {
+      getCount: function(){
+        return count++;
+      },
       getData: function() {
         return data;
       },

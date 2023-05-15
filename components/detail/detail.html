@@ -1,9 +1,9 @@
 <div class="container d-flex pt-5 justify-content-center"><h1>Enter Candidate Details</h1></div>
 <div class="container d-flex pt-4 justify-content-center">
-        <form action="#!/dashboard" name="detailsform">
+        <form action="#!dashboard" name="detailsform">
             
             <label for="">Enter Candidate Status:</label>
-            <input type="text" name="status" placeholder="Enter Status" ng-model="status" required>
+            <input type="text" name="status" placeholder="Enter Status" ng-model="ctrl.status" required>
 
             <label for="">Date Reviewed:</label>
             <input type="text" name="date" placeholder="Enter Reviewed Date" ng-model="date" required>
@@ -12,8 +12,6 @@
                 type="submit" 
                 value="Submit"
                 ng-disabled="detailsform.status.$invalid || detailsform.date.$invalid">
-
-            <p>Status Value : {{status}}</p>
 
         </form>
 </div>
