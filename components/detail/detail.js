@@ -1,34 +1,23 @@
-// app.component("detailComp",{
-//     templateUrl : "components/detail/detail.html",
-//     controller : function($scope, $rootScope, $sessionStorage, dataService){
-//         var ctrl = this;
-//         sessionStorage.status = ctrl.status;
-//         console.log(ctrl.status);
-//         this.$onInit = function() {
-//             ctrl.randomString123 = 'MyName is Shahzaib';
-//             dataService.setData(ctrl.status);
-//             console.log(ctrl.status);
-//             console.log("Checking....");
-//         }
-//     },
-//     controllerAs: 'ctrl'
-// });
 app.component("detail", {
     templateUrl: "components/detail/detail.html",
-    controller: function($sessionStorage, dataService){
+    controller: function($scope, $sessionStorage, dataService){
         console.log("This is details controller");
         var ctrl = this;
-        $sessionStorage.status = ctrl.status;
+
         ctrl.$onInit = function() {
-            //ctrl.randomValue = dataService.getData();
-            console.log("Details OnInit");
-            console.log(dataService.getCount());
-            dataService.setData(ctrl.status);
-            // ctrl.talha = "Random String";
-            // dataService.setData(ctrl.status);
-            $sessionStorage.valueToShare = 'Xyz-Part1';
-            //ctrl.randomValue = dataService.getData();
-        }
+            console.log("This runs everytime when controller is initialized");
+        }        
+        
+        $scope.$watchGroup(['ctrl.status', 'ctrl.date'], function(newValues, oldValues) {
+            if (newValues[0] !== oldValues[0]) { 
+              //if we dont use this check we encounter : [$rootScope:infdig] error caused by an infinite digest loop.
+              $sessionStorage.status = newValues[0];
+            }
+            if (newValues[1] !== oldValues[1]) {
+              $sessionStorage.date = newValues[1];
+            }
+          });
+
     },
     controllerAs: 'ctrl'
 });

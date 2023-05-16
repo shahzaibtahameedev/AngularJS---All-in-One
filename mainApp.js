@@ -1,5 +1,5 @@
-var app = angular.module("myApp", ['ngRoute', 'ngStorage']);
-app.controller("myCtrl", function($scope, $http){
+var app = angular.module("myApp", ['ui.router', 'ngStorage']);
+app.controller("myCtrl", function($scope, $http, $sessionStorage){
     $scope.myname = 'Shahzaib-Tahamee';
     $scope.status = 'randomValue';
     $scope.rowLimit = 10;
@@ -9,6 +9,7 @@ app.controller("myCtrl", function($scope, $http){
         url: 'https://dummyjson.com/products'
     }).then(function successCallback(response) {
         $scope.dataFromApi = response.data.products;
+        $sessionStorage.dataFromApi = response.data.products;
         //$log.info(response);
         // console.log(response.total);
     }, function errorCallback(response) {
@@ -28,36 +29,41 @@ app.controller("myCtrl", function($scope, $http){
         }
     };
 })
-app.config(function($routeProvider) {
-    $routeProvider
-    .when('/login', {
-      template: '<login-comp></login-comp>',
-    })
-    .when('/dashboard', {
-      template: '<dashboard></dashboard>',
-    })
-    .when('/details', {
-      template: '<detail></detail>',
-    })
-    .otherwise({
-      redirectTo: '/login'
-    });
-})
+// app.config(function($routeProvider) {
+//     $routeProvider
+//     .when('/login', {
+//       template: '<login-comp></login-comp>',
+//     })
+//     .when('/dashboard', {
+//       template: '<dashboard></dashboard>',
+//     })
+//     .when('/details', {
+//       template: '<detail></detail>',
+//     })
+//     .otherwise({
+//       redirectTo: '/login'
+//     });
+// })
+//'ngRoute'
 
-// app.config(function($stateProvider, $urlRouterProvider) {
-//     $stateProvider
-//       .state('one', {
-//         url: "/login",
-//         template: '<login-comp></login-comp>'
-//       })
-//       .state('two', {
-//         url: "/dashboard",
-//         templateUrl: '<dashboard></dashboard>'
-//       })
-//       .state('three', {
-//         url: "/details",
-//         template: '<detail></detail>'
-//       });
-
-//       $urlRouterProvider.otherwise('/login');
-//   });
+app.config(function($stateProvider, $urlRouterProvider) {
+    $stateProvider
+      .state('one', {
+        url: "/login",
+        template: '<login></login>'
+      })
+      .state('two', {
+        url: "/dashboard",
+        template: '<dashboard></dashboard>'
+      })
+      .state('three', {
+        url: "/details",
+        template: '<detail></detail>'
+      })
+      .state('four', {
+        url: "/datatable",
+        template: '<datatable></datatable>'
+      });
+      
+      $urlRouterProvider.otherwise('/login');
+});

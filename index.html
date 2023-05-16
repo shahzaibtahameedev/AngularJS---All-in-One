@@ -4,22 +4,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/bootstrap-5.3.0-alpha3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/datatables.min.css">
+
+    <!-- Angular CDNs -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="/mainApp.js"></script>
-    <script src="/components/login/login.js"></script>
-    <!-- <script src="/components/app/app.js"></script> -->
-    <script src="/components/dashboard/dashboard.js"></script>
-    <!-- <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-    <script src="/components/detail/detail.js"></script>
-    <script src="/service/data-service.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/angular-ui-router.js" integrity="sha512-ftmRxP7cYZRj3uBVtTLTXU8QwkcOu2fuVaWqyKpMS40CVRns5TtQGesezvqGI+Eb6B+SuUQLjoHYdoJvDcD7/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/angular-ui-router.js" integrity="sha512-ftmRxP7cYZRj3uBVtTLTXU8QwkcOu2fuVaWqyKpMS40CVRns5TtQGesezvqGI+Eb6B+SuUQLjoHYdoJvDcD7/w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <!-- <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script> -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.28/angular-ui-router.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/angular-ui-router.min.js" integrity="sha512-BWLZUPMCCZGKazkRadkF9YXKQcVv1uAsyfvVx7T6pojT72iTrD6wegUBpaF8H3dCpLOeMDeXu+W58qgqZ0iwvA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/resolveService.js" integrity="sha512-217+QnytYFoafICTfrlCloNplfWvH44P33iQHXEd5fe7AlCzqd/YUdXM+ADbuAGapBoyk/bFdFhiQnPAk0Sg/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.1.0/resolveService.min.js" integrity="sha512-hjE8NWXHdqDPUXjt9Kh5tLPc9NEMsqcKFjS9yVne7VNPtczg5kYS96jf3pB4I3MNQNyghDFQB5KSAD4d+wXqnw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
     <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
+
+    <!-- Jquery and DataTables -->
+    <!-- <script src="jquery-3.7.0.min.js"></script>
+    <script src="datatables.min.js"></script> -->
+
+    <!-- Javascript Files -->
+    <script src="/mainApp.js"></script>
+    <script src="/components/login/login.js"></script>
+    <script src="/components/dashboard/dashboard.js"></script>
+    <script src="/components/detail/detail.js"></script>
+    <script src="/components/datatable/datatable.js"></script>
+    <script src="/service/data-service.js"></script>
     <script src="/filter/number.js"></script>
 
 </head>
@@ -27,19 +36,50 @@
     <div
     ng-app="myApp"
     >
-     <nav class="navbar" style="border-style: dotted;">
-        <div class="container-fluid">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li><a href="#!login">Login</a></li>
-                <li><a href="#!dashboard">Dashboard</a></li>
-                <li><a href="#!details">Details</a></li>
-            </ul>
-            
-        </div>
-    </nav>
 
-        <div ng-view></div>
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-3">
+                
+                <nav class="nav flex-column" style="height: 1000px; background-color: #C8C8C8;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-4">
+                        
+                        <!-- <li><a href="#!login">Login</a></li>
+                        <li><a href="#!dashboard">Dashboard</a></li>
+                        <li><a href="#!details">Details</a></li> -->
+                    
+                        <li class="p-3 fs-4"><a ui-sref="one" style="text-decoration:none">Login</a></li>
+
+                        <li class="p-3 fs-4"><a ui-sref="two" style="text-decoration:none">Dashboard</a></li>
+                        
+                        <li class="p-3 fs-4"><a ui-sref="three" style="text-decoration:none">Details</a></li>
+                        
+                        <li class="p-3 fs-4"><a ui-sref="four" style="text-decoration:none">Datatable</a></li>
+
+                    </ul>
+                    
+                    <!-- <div class="container-fluid d-flex justify-content-center p-4" style="border-style: dotted;">
+                        
+                    </div> -->
+                </nav>
+
+            </div>
+            <div class="col-9">
+                 <!-- <div ng-view></div> -->
+                <div ui-view></div>
+            </div>
+
+        </div>
 
     </div>
+
+        <script src="jquery-3.7.0.min.js"></script>
+        <script src="datatables.min.js"></script>
+    
+    </div>
+
+    
+
 </body>
 </html>

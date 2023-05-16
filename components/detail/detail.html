@@ -6,12 +6,17 @@
             <input type="text" name="status" placeholder="Enter Status" ng-model="ctrl.status" required>
 
             <label for="">Date Reviewed:</label>
-            <input type="text" name="date" placeholder="Enter Reviewed Date" ng-model="date" required>
+            <input type="text" name="date" placeholder="Enter Reviewed Date" ng-model="ctrl.date" required>
 
             <input 
                 type="submit" 
                 value="Submit"
                 ng-disabled="detailsform.status.$invalid || detailsform.date.$invalid">
+
+           
+        
+        <!-- <p ng-bind="ctrl.status"></p> -->
+        <!-- <p>{{ctrl.gotData}}</p> -->
 
         </form>
 </div>

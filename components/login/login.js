@@ -1,4 +1,4 @@
-app.component("loginComp",{
+app.component("login",{
     templateUrl  : "components/login/login.html",
     controller: function($scope, $http){
         //this.myname = "Shahzaib";
